@@ -142,7 +142,8 @@ function convertUnits(){const val=Number($("#unitValue").value),a=unitSets[unitT
 $("[data-unit]").forEach(b=>b.onclick=()=>{$("[data-unit]").forEach(x=>x.classList.toggle("active",x===b));unitType=b.dataset.unit;fillUnits()});
 $("#unitValue").oninput=convertUnits;$("#unitFrom").onchange=convertUnits;$("#unitTo").onchange=convertUnits;fillUnits();
 $("#pickRandom").onclick=()=>{const list=$("#randomOptions").value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);$("#randomResult").textContent=list.length?list[Math.floor(Math.random()*list.length)]:"请先输入至少两个选项。"};
-\n// 启动动画：短暂展示品牌页后平滑进入工具箱。
+
+// 启动动画：短暂展示品牌页后平滑进入工具箱。
 const splash = document.getElementById('splash');
 window.setTimeout(() => splash && splash.classList.add('hide'), 2350);
 // PWA：在支持的浏览器中安装离线缓存；首次在线打开后可再次离线访问。
