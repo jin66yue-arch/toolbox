@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pocket-kit-v1';
+const CACHE_NAME = 'pocket-kit-v2';
 const APP_SHELL = [
   './',
   './index.html',
