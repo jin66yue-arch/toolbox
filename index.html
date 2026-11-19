@@ -1,67 +1,67 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f5f7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小工具箱"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="轻巧、离线可用的个人效率工具箱"><link rel="manifest" href="./manifest.json"><link rel="icon" href="./icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icons/icon.svg"><title>小工具箱 · Pocket Kit</title>
 <style>
-:root{color-scheme:light;--bg:#f5f5f7;--surface:rgba(255,255,255,.78);--surface-solid:#fff;--text:#1d1d1f;--muted:#86868b;--blue:#007aff;--blue-soft:#e8f2ff;--line:rgba(0,0,0,.07);--shadow:0 8px 30px rgba(0,0,0,.045);--radius:24px}
+:root{color-scheme:light;--bg:#f5f5f7;--surface:rgba(255,255,255,.86);--white:#fff;--text:#1d1d1f;--muted:#86868b;--blue:#007aff;--line:rgba(60,60,67,.10);--shadow:0 5px 22px rgba(0,0,0,.045);--radius:25px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(ellipse at 12% 0%,#e8f1ff 0,transparent 34%),radial-gradient(ellipse at 100% 28%,#f2eaff 0,transparent 30%),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC",sans-serif;color:var(--text);line-height:1.5;min-height:100vh}
+body{margin:0;background:radial-gradient(ellipse at 5% -8%,rgba(190,218,255,.52),transparent 36%),radial-gradient(ellipse at 105% 18%,rgba(225,211,255,.34),transparent 30%),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC",sans-serif;color:var(--text);line-height:1.5;min-height:100vh}
 button,input,textarea{font:inherit}button{cursor:pointer}
-.app{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 8px) 18px calc(30px + env(safe-area-inset-bottom))}
-header{padding:28px 2px 22px;display:flex;justify-content:space-between;align-items:center}
-.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--blue);font-weight:750}
-.brand{font-size:34px;letter-spacing:-.055em;font-weight:780;margin:5px 0 1px}
+.app{max-width:780px;margin:auto;padding:calc(env(safe-area-inset-top) + 8px) 18px calc(34px + env(safe-area-inset-bottom))}
+header{padding:30px 3px 24px;display:flex;justify-content:space-between;align-items:center}
+.eyebrow{font-size:10px;letter-spacing:.15em;color:var(--blue);font-weight:750}
+.brand{font-size:36px;letter-spacing:-.065em;font-weight:780;margin:5px 0 1px}
 .sub,.muted{color:var(--muted);font-size:13px}
-.mark{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#eaf2ff);border:1px solid #fff;box-shadow:0 7px 22px #407ac51c;font-size:25px;color:var(--blue)}
-.tabs{display:flex;gap:7px;overflow:auto;padding:5px 0 17px;scrollbar-width:none;position:sticky;top:0;z-index:20;background:linear-gradient(var(--bg) 76%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 94%,transparent)}
+.mark{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#eaf2ff);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(0,122,255,.12);font-size:25px;color:var(--blue)}
+.tabs{display:flex;gap:5px;overflow:auto;padding:6px;margin:0 0 20px;scrollbar-width:none;position:sticky;top:calc(env(safe-area-inset-top) + 4px);z-index:20;background:rgba(245,245,247,.78);border:1px solid rgba(255,255,255,.85);border-radius:18px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 3px 14px rgba(0,0,0,.035)}
 .tabs::-webkit-scrollbar{display:none}
-.tab{white-space:nowrap;border:1px solid transparent;border-radius:99px;background:rgba(255,255,255,.66);color:#626269;padding:9px 15px;font-size:13px;font-weight:600;box-shadow:0 2px 8px #00000005;backdrop-filter:blur(18px)}
-.tab.active{color:#fff;background:var(--blue);box-shadow:0 5px 14px #007aff30}
-.view{display:none}.view.active{display:block;animation:viewIn .28s ease}
-@keyframes viewIn{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}
-.section-title{font-size:23px;letter-spacing:-.035em;font-weight:760;margin:8px 0 16px}
+.tab{white-space:nowrap;flex:1;border:0;border-radius:13px;background:transparent;color:#6e6e73;padding:10px 12px;font-size:13px;font-weight:620;transition:background .2s,color .2s,box-shadow .2s}
+.tab.active{color:#1d1d1f;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.view{display:none}.view.active{display:block;animation:viewIn .25s ease}
+@keyframes viewIn{from{opacity:.45;transform:translateY(5px)}to{opacity:1;transform:none}}
+.section-title{font-size:25px;letter-spacing:-.045em;font-weight:760;margin:8px 0 17px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.tile,.panel{border:1px solid rgba(255,255,255,.9);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);padding:18px}
-.tile{min-height:142px;text-align:left;color:var(--text);transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden}
-.tile:active{transform:scale(.975);box-shadow:0 3px 12px #0000000b}
-.ico{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:var(--blue-soft);font-size:23px;margin-bottom:13px}
-.tile strong{display:block;font-size:15px;font-weight:700;letter-spacing:-.02em}
+.tile,.panel{border:1px solid rgba(255,255,255,.94);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);padding:19px}
+.tile{min-height:151px;text-align:left;color:var(--text);transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden}
+.tile:active{transform:scale(.975);box-shadow:0 3px 12px rgba(0,0,0,.07)}
+.ico{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:#eaf2ff;font-size:22px;margin-bottom:14px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.025)}
+.tile:nth-child(2) .ico{background:#fff2df}.tile:nth-child(3) .ico{background:#f2eaff}.tile:nth-child(4) .ico{background:#e5f7ef}.tile:nth-child(5) .ico{background:#ffeef0}
+.tile strong{display:block;font-size:15px;font-weight:700;letter-spacing:-.025em}
 .tile small{display:block;color:var(--muted);margin-top:4px;font-size:12px}
-.panel{margin-bottom:13px;padding:19px}
-.panel h3{font-size:16px;letter-spacing:-.02em;margin:0 0 13px;font-weight:700}
-button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #007aff45;outline-offset:2px}
-.field{width:100%;padding:13px 14px;background:#f5f5f7;border:1px solid transparent;border-radius:14px;color:var(--text);margin:5px 0 10px;outline:none;transition:border .2s,background .2s}
+.panel{margin-bottom:13px;padding:20px}
+.panel h3{font-size:16px;letter-spacing:-.025em;margin:0 0 13px;font-weight:720}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(0,122,255,.35);outline-offset:2px}
+.field{width:100%;padding:14px 15px;background:#f2f2f7;border:1px solid transparent;border-radius:15px;color:var(--text);margin:5px 0 10px;outline:none;transition:border .2s,background .2s;min-width:0}
 .field:focus{background:#fff;border-color:#80baff}
 .field::placeholder{color:#a1a1a6}
 textarea.field{min-height:120px;resize:vertical}
-.btn{border:0;border-radius:14px;padding:12px 17px;background:var(--blue);color:#fff;font-weight:650;font-size:14px;box-shadow:0 4px 12px #007aff25;transition:transform .15s,opacity .15s}
+.btn{border:0;border-radius:15px;padding:12px 18px;background:var(--blue);color:#fff;font-weight:650;font-size:14px;box-shadow:0 4px 12px rgba(0,122,255,.2);transition:transform .15s,opacity .15s}
 .btn:active{transform:scale(.97);opacity:.88}
-.btn.secondary{background:#f1f1f4;color:#333;border:1px solid #e9e9ed;box-shadow:none}
+.btn.secondary{background:#f1f1f4;color:#333;border:1px solid rgba(60,60,67,.08);box-shadow:none}
 .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1;min-width:0}
-.task{display:flex;gap:11px;align-items:center;padding:13px 1px;border-bottom:1px solid var(--line)}
+.task{display:flex;gap:11px;align-items:center;padding:14px 1px;border-bottom:1px solid var(--line)}
 .task input{width:19px;height:19px;accent-color:var(--blue)}
 .task span{flex:1;overflow-wrap:anywhere;font-size:14px}
 .task.done span{text-decoration:line-through;color:#a1a1a6}
-.task button{background:#fff0f0;border:0;border-radius:9px;padding:6px 10px;color:#e34b4b;font-size:12px}
-.result{font-size:30px;font-weight:780;letter-spacing:-.045em;margin:8px 0;color:var(--text);font-variant-numeric:tabular-nums}
-.note{padding:14px;border:1px solid var(--line);border-radius:17px;margin-top:10px;background:#fafafd;overflow-wrap:anywhere}
+.task button{background:#fff0f0;border:0;border-radius:10px;padding:7px 11px;color:#e34b4b;font-size:12px}
+.result{font-size:30px;font-weight:780;letter-spacing:-.05em;margin:8px 0;color:var(--text);font-variant-numeric:tabular-nums}
+.note{padding:15px;border:1px solid var(--line);border-radius:18px;margin-top:10px;background:rgba(250,250,252,.9);overflow-wrap:anywhere}
 .note p{white-space:pre-wrap;color:#68686e;font-size:13px;margin:7px 0 12px}
-.hidden{display:none!important}.foot{text-align:center;color:#a1a1a6;font-size:11px;padding:27px 0 8px;letter-spacing:.08em}
+.hidden{display:none!important}.foot{text-align:center;color:#a1a1a6;font-size:10px;padding:29px 0 8px;letter-spacing:.12em}
 #taskCount,#noteCount{color:var(--blue)}
 #emptyTasks,#emptyNotes{padding:14px 0}
-.splash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:rgba(245,245,247,.98);opacity:1;visibility:visible;transition:opacity .5s ease,visibility .5s ease}
-.splash::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#dceaff 0,rgba(220,234,255,0) 70%);filter:blur(8px)}
-.splash::after{content:"";position:absolute;width:190px;height:190px;border:1px solid #007aff12;border-radius:50%}
-.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
-.splash-stars{display:none}
+.splash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:rgba(245,245,247,.99);opacity:1;visibility:visible;transition:opacity .5s ease,visibility .5s ease}
+.splash::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(208,228,255,.8),rgba(220,234,255,0) 70%);filter:blur(9px)}
+.splash::after{content:"";position:absolute;width:205px;height:205px;border:1px solid rgba(0,122,255,.08);border-radius:50%}
+.splash-stars{display:none}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
 .splash-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;animation:splashRise .8s cubic-bezier(.2,.8,.2,1) both}
-.splash-emblem{position:relative;display:grid;place-items:center;width:118px;height:118px;margin-bottom:8px}
-.splash-emblem::before,.splash-emblem::after{content:"";position:absolute;inset:0;border:1px solid #007aff20;border-radius:34px;transform:rotate(12deg)}
-.splash-emblem::after{inset:8px;border-color:#8e8e9325;border-radius:29px;transform:rotate(-10deg)}
-.splash-logo{position:relative;z-index:1;width:88px;height:88px;border-radius:27px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#e7f1ff);border:1px solid #fff;box-shadow:0 12px 35px #287bd329;animation:logoFloat 2.8s ease-in-out infinite}
+.splash-emblem{position:relative;display:grid;place-items:center;width:116px;height:116px;margin-bottom:8px}
+.splash-emblem::before,.splash-emblem::after{content:"";position:absolute;inset:0;border:1px solid rgba(0,122,255,.13);border-radius:34px;transform:rotate(9deg)}
+.splash-emblem::after{inset:8px;border-color:rgba(142,142,147,.15);border-radius:29px;transform:rotate(-8deg)}
+.splash-logo{position:relative;z-index:1;width:88px;height:88px;border-radius:27px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#e7f1ff);border:1px solid #fff;box-shadow:0 12px 35px rgba(40,123,211,.17);animation:logoFloat 2.8s ease-in-out infinite}
 .splash-logo svg{width:60px;height:60px;filter:none}
-.splash-title{margin-top:22px;font-size:29px;font-weight:780;letter-spacing:-.045em;color:#1d1d1f;opacity:0;animation:textReveal .6s .3s ease forwards}
-.splash-sub{margin-top:7px;color:#86868b;font-size:10px;letter-spacing:.16em;opacity:0;animation:textReveal .6s .45s ease forwards}
-.splash-by{margin-top:13px;color:var(--blue);font-size:11px;font-weight:650;letter-spacing:.12em;text-shadow:none;opacity:0;animation:textReveal .6s .58s ease forwards}
+.splash-title{margin-top:22px;font-size:29px;font-weight:780;letter-spacing:-.05em;color:#1d1d1f;opacity:0;animation:textReveal .6s .3s ease forwards}
+.splash-sub{margin-top:7px;color:#86868b;font-size:10px;letter-spacing:.15em;opacity:0;animation:textReveal .6s .45s ease forwards}
+.splash-by{margin-top:13px;color:var(--blue);font-size:11px;font-weight:650;letter-spacing:.12em;opacity:0;animation:textReveal .6s .58s ease forwards}
 .splash-loader{width:116px;height:3px;margin-top:27px;overflow:hidden;border-radius:9px;background:#dfe4ec;opacity:0;animation:textReveal .5s .6s ease forwards}
 .splash-loader::after{content:"";display:block;width:44%;height:100%;border-radius:9px;background:var(--blue);animation:loaderTravel 1.05s ease-in-out infinite}
 .splash-version{margin-top:14px;color:#a1a1a6;font-size:9px;letter-spacing:.2em;opacity:0;animation:textReveal .6s .7s ease forwards}
@@ -70,9 +70,9 @@ textarea.field{min-height:120px;resize:vertical}
 @keyframes textReveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 @keyframes loaderTravel{from{transform:translateX(-110%)}to{transform:translateX(250%)}}
 @media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.app{padding-left:24px;padding-right:24px}}
+@media(max-width:370px){.app{padding-left:13px;padding-right:13px}.tab{padding:9px 8px;font-size:12px}.tile{padding:16px;min-height:144px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.splash-title,.splash-sub,.splash-by,.splash-loader,.splash-version{opacity:1}}
-
-</style></head><body><div id="splash" class="splash" role="status" aria-label="小工具箱正在启动"><div class="splash-stars" aria-hidden="true"></div><div class="splash-inner"><div class="splash-emblem"><div class="splash-logo" aria-hidden="true"><svg viewBox="0 0 512 512" fill="none"><rect x="64" y="64" width="384" height="384" rx="96" fill="#151c31" stroke="url(#sg)" stroke-width="12"/><path d="M160 184h192M160 256h192M160 328h112" stroke="url(#sg)" stroke-width="24" stroke-linecap="round"/><circle cx="350" cy="328" r="21" fill="#75e3ff"/><defs><linearGradient id="sg" x1="64" y1="64" x2="448" y2="448"><stop stop-color="#75e3ff"/><stop offset="1" stop-color="#b29bff"/></linearGradient></defs></svg></div></div><div class="splash-title">小工具箱<span style="color:#75e3ff">.</span></div><div class="splash-sub">POCKET KIT · PERSONAL EDITION</div><div class="splash-by">by jinyue</div><div class="splash-loader" aria-hidden="true"></div><div class="splash-version">READY FOR YOUR DAY</div></div></div><div class="app"><header><div><div class="eyebrow">POCKET KIT · PERSONAL EDITION</div><div class="brand">小工具箱<span style="color:var(--a)">.</span></div><div class="sub">把常用的小功能，装进口袋里。</div></div><div class="mark">✦</div></header>
+</style></head><body><div id="splash" class="splash" role="status" aria-label="小工具箱正在启动"><div class="splash-stars" aria-hidden="true"></div><div class="splash-inner"><div class="splash-emblem"><div class="splash-logo" aria-hidden="true"><svg viewBox="0 0 512 512" fill="none"><rect x="64" y="64" width="384" height="384" rx="96" fill="#f8fbff" stroke="url(#sg)" stroke-width="12"/><path d="M160 184h192M160 256h192M160 328h112" stroke="url(#sg)" stroke-width="24" stroke-linecap="round"/><circle cx="350" cy="328" r="21" fill="#75e3ff"/><defs><linearGradient id="sg" x1="64" y1="64" x2="448" y2="448"><stop stop-color="#75e3ff"/><stop offset="1" stop-color="#b29bff"/></linearGradient></defs></svg></div></div><div class="splash-title">小工具箱<span style="color:#75e3ff">.</span></div><div class="splash-sub">POCKET KIT · PERSONAL EDITION</div><div class="splash-by">by jinyue</div><div class="splash-loader" aria-hidden="true"></div><div class="splash-version">READY FOR YOUR DAY</div></div></div><div class="app"><header><div><div class="eyebrow">POCKET KIT · PERSONAL EDITION</div><div class="brand">小工具箱<span style="color:var(--blue)">.</span></div><div class="sub">把常用的小功能，装进口袋里。</div></div><div class="mark">✦</div></header>
 <nav class="tabs"><button class="tab active" data-view="home">首页</button><button class="tab" data-view="tasks">待办清单</button><button class="tab" data-view="timer">倒计时</button><button class="tab" data-view="notes">随手记</button><button class="tab" data-view="text">文本工具</button></nav>
 <main><section id="home" class="view active"><div class="section-title">今天想做点什么？</div><div class="grid"><button class="tile" data-go="tasks"><div class="ico">☑️</div><strong>待办清单</strong><small>记下任务，一件件完成</small></button><button class="tile" data-go="timer"><div class="ico">⏳</div><strong>倒计时</strong><small>距离目标还有多久</small></button><button class="tile" data-go="notes"><div class="ico">📝</div><strong>随手记</strong><small>保存灵感和备忘</small></button><button class="tile" data-go="text"><div class="ico">🔤</div><strong>文本工具</strong><small>统计字数、清理空格</small></button><button class="tile" data-go="about"><div class="ico">✨</div><strong>使用说明</strong><small>数据仅保存在本机</small></button></div><div class="panel" style="margin-top:14px"><h3>快速概览</h3><div class="row"><div><div class="muted">待办未完成</div><div class="result" id="taskCount">0</div></div><div><div class="muted">已保存笔记</div><div class="result" id="noteCount">0</div></div></div></div></section>
 <section id="tasks" class="view"><div class="section-title">待办清单</div><div class="panel"><h3>添加一件事</h3><form id="taskForm" class="row"><input id="taskInput" class="field" placeholder="例如：完成今天的学习计划" maxlength="160" required><button class="btn" type="submit" style="flex:0 0 auto">添加</button></form><div id="taskList"></div><div id="emptyTasks" class="muted">还没有任务，添加一条开始吧。</div><button id="clearDone" class="btn secondary" style="margin-top:12px">清除已完成</button></div></section>
